@@ -33,11 +33,17 @@ else
 }
 */
 
-// Clasa MyStack
-MyStack ms = new MyStack();
 Random rnd = new Random();
+// Clasa MyStack
+
+/*
+MyStack ms = new MyStack();
 while (true)
 {
+	if (ms.Count == 100)
+	{
+		break;
+	}
 	try
 	{
 		ms.Push(rnd.Next(1000));
@@ -51,4 +57,16 @@ while (true)
 while (!ms.Empty)
 {
     Console.WriteLine(ms.Pop());
+}
+*/
+
+MyListStack mls = new MyListStack();
+
+for (int i = 0; i < 10; i++)
+{
+	mls.Push(rnd.Next(1000));
+}
+while (!mls.Empty)
+{
+    Console.WriteLine(mls.Pop());
 }
