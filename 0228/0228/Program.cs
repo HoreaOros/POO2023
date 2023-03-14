@@ -17,8 +17,9 @@ namespace _0228
             //Console.WriteLine(h1.Width);
 
             //Frame f = new Frame(5, 6);
+            
             Ladder lad = new Ladder(8, 10, 3);
-            Console.WriteLine(lad.Width);
+            //Console.WriteLine(lad.Width);
         }
     }
 }

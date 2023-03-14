@@ -11,6 +11,7 @@ namespace _0228_2
         static void Main(string[] args)
         {
             Point p1 = new Point(3, 4);
+            Point p2 = new Point(5);
             Console.WriteLine(p1);
             Console.WriteLine(p1.EuclideanDistanceTo(new Point(6, 8)));
             Console.WriteLine(p1.ManhattanDistance(new Point(6, 8)));

@@ -13,12 +13,12 @@ internal class Rational
     }
     public override string ToString()
     {
-        return $"({this.numarator}/{this.numitor})";
+        return $"({numarator}/{numitor})";
     }
 
-    internal Rational Add(Rational r2)
+    public Rational Add(Rational r2)
     {
-        Rational result = new Rational(0, 0);
+        Rational result = new Rational();
         result.numitor = this.numitor * r2.numitor;
         result.numarator = this.numarator * r2.numitor + 
             r2.numarator * this.numitor;

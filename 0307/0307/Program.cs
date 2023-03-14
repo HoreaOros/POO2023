@@ -3,14 +3,14 @@
 // Clasa Stack...
 using _0307;
 
-/*
-Console.WriteLine("Hello, World!");
+
 Stack<int> st = new Stack<int>();
 
 for (int i = 0; i < 10; i++)
     st.Push(i);
 while (st.Count > 0)
     Console.WriteLine(st.Pop());
+
 
 try
 {
@@ -31,7 +31,9 @@ else
 {
     Console.WriteLine("Pop failed.Stack empty.");
 }
-*/
+
+
+/*
 
 Random rnd = new Random();
 // Clasa MyStack
@@ -59,7 +61,7 @@ while (!ms.Empty)
     Console.WriteLine(ms.Pop());
 }
 */
-
+/*
 MyListStack mls = new MyListStack();
 
 for (int i = 0; i < 10; i++)
@@ -70,3 +72,5 @@ while (!mls.Empty)
 {
     Console.WriteLine(mls.Pop());
 }
+
+*/

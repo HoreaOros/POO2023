@@ -13,7 +13,6 @@
                 System.Console.Write("-");
             }
             System.Console.WriteLine('+');
-
         }
 
         public int Width 

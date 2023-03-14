@@ -32,5 +32,12 @@
                 return v.Height;
             }
         }
+        public VertBar VertBar
+        {
+            get
+            {
+                return v;
+            }
+        }
     }
 }
