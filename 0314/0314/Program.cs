@@ -30,4 +30,15 @@ MyDateTime md2 = new MyDateTime(23, 6, 2023);
 MyDateTime md3 = new MyDateTime(an: 2025, luna: 12, zi: 13);
 Console.WriteLine(md3);
 
+if (md2 == md3)
+{
+    Console.WriteLine($"{md2} / {md3} sunt egale");
+}
+else
+{
+    Console.WriteLine($"{md2} / {md3} nu sunt egale");
+}
+
+Console.WriteLine(md2 - md3); // 
+
 
