@@ -29,5 +29,28 @@ namespace Rectangle
             return Width * Height;
         }
 
+        public bool IntersectsWith(Rectangle other)
+        {
+            Interval s1 = new Interval(this.Origin.X, this.Origin.X + this.Width);
+            Interval s2 = new Interval(this.Origin.Y - this.Height, this.Origin.Y);
+
+            Interval s1Other = new Interval(other.Origin.X, other.Origin.X + other.Width);
+            Interval s2Other = new Interval(other.Origin.Y - other.Height, other.Origin.Y);
+
+            return (s1.IntersectsWith(s1Other) && s2.IntersectsWith(s2Other));
+        }
+        /// <summary>
+        /// Intersectia a doua dreptunghiuri
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public Rectangle? Intersect(Rectangle other)
+        {
+            if (!this.IntersectsWith(other))
+                return null;
+
+            throw new NotImplementedException();
+        }
     }
 }

@@ -57,5 +57,31 @@ namespace Rectangle.Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod()]
+        public void IntersectsWithPositiveTest()
+        {
+            // Arrange
+            Rectangle r1 = new Rectangle(new Point(2, 7), new Point(4, 5));
+            Rectangle r2 = new Rectangle(new Point(3, 6), new Point(10, 1));
+
+            // Act
+            bool expected = true;
+            bool actual = r1.IntersectsWith(r2);
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod()]
+        public void IntersectsWithNegativeTest()
+        {
+            // Arrange
+            Rectangle r1 = new Rectangle(new Point(1, 3), new Point(4, 5));
+            Rectangle r2 = new Rectangle(new Point(5, 4), new Point(7, 9));
+
+            // Act
+            bool expected = false;
+            bool actual = r1.IntersectsWith(r2);
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
