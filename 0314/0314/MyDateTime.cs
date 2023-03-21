@@ -76,9 +76,9 @@ internal class MyDateTime: IEquatable<MyDateTime>, IComparable<MyDateTime>
           .Append(this.an)
           .Append(" ")
           .Append(this.ora)
-          .Append(".")
+          .Append(":")
           .Append(this.minut)
-          .Append(".")
+          .Append(":")
           .Append(this.secunda);
         return sb.ToString();
     }
@@ -106,7 +106,7 @@ internal class MyDateTime: IEquatable<MyDateTime>, IComparable<MyDateTime>
         // Note that the base class is not invoked because it is
         // System.Object, which defines Equals as reference equality.
         return this.an == other.an && this.luna == other.luna && this.zi == other.zi
-            && this.ora == other.ora && this.minut == other.minut && this.secunda == other.secunda; ;
+            && this.ora == other.ora && this.minut == other.minut && this.secunda == other.secunda; 
     }
 
     public int Zi => zi;
