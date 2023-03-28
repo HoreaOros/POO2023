@@ -17,7 +17,23 @@ namespace _0328.Tests
             // Arrange
             ModularCounter mc = new ModularCounter(10);
             // Act
-            for(int i = 0; i < 15; i++)
+            for (int i = 0; i < 15; i++)
+            {
+                mc.Tick();
+            }
+            // Assert
+            int expected = 5;
+            int actual = mc.Count;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void TickTest1()
+        {
+            // Arrange
+            Counter mc = new ModularCounter(10);
+            // Act
+            for (int i = 0; i < 15; i++)
             {
                 mc.Tick();
             }

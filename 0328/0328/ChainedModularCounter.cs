@@ -21,6 +21,5 @@ namespace _0328
                 next.Tick();
             }
         }
-
     }
 }
