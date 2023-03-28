@@ -24,7 +24,7 @@ internal class World2
 
     public void DisplayAllMessages()
     {
-        Console.WriteLine($"Messages recieved by: {_id}");
+        Console.WriteLine($"Messages received by: {_id}");
         foreach(var message in receivedMessages) 
         {
             Console.WriteLine(message);

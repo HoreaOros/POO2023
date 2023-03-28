@@ -14,7 +14,7 @@ World2 pw2 = new World2();
 pw2.SayHello();
 
 pw.SendMessage(pw2, "..---.-..---");
-pw.SendMessage(pw2, "...---...");
+pw.SendMessage(pw2, "... --- ...");
 
 pw2.DisplayAllMessages();
 

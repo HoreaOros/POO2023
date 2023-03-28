@@ -37,6 +37,8 @@ namespace Rectangle
             Interval s1Other = new Interval(other.Origin.X, other.Origin.X + other.Width);
             Interval s2Other = new Interval(other.Origin.Y - other.Height, other.Origin.Y);
 
+            Interval[] intervals = new Interval[] { s1, s2 };
+            Array.Sort(intervals);
             return (s1.IntersectsWith(s1Other) && s2.IntersectsWith(s2Other));
         }
         /// <summary>
