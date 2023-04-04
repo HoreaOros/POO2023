@@ -18,7 +18,8 @@ namespace _0328
             base.Tick();
             if (Count == 0)
             {
-                next.Tick();
+                if(next != null)
+                    next.Tick();
             }
         }
     }
