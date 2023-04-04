@@ -1,6 +1,6 @@
 ﻿using _0404;
 
-internal class Circle : Shape, IShape
+internal class Circle : Shape
 {
     public int Radius { get; private set; }
 
@@ -16,7 +16,7 @@ internal class Circle : Shape, IShape
     {
         Console.WriteLine("Drawing Circle...");
     }
-    public double Area()
+    public override double Area()
     {
         return Math.PI * Math.Pow(Radius, 2);
     }

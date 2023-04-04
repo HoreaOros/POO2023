@@ -12,3 +12,13 @@ s.Draw();
 
 s = new Rectangle(new Point(3, 0), 3, 6);
 s.Draw();
+
+List<Shape> shapes = new List<Shape>();
+shapes.Add(c);
+shapes.Add(r);
+shapes.Add(s);
+foreach (var item in shapes)
+{
+    item.Draw();
+}
+

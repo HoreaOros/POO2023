@@ -1,6 +1,6 @@
 ﻿namespace _0404
 {
-    public class Rectangle : Shape, IShape
+    public class Rectangle : Shape
     {
         public int Width { get; private set; }
         public int Height { get; private set; }
@@ -19,7 +19,7 @@
         {
             Console.WriteLine("Drawing Rectangle...");
         }
-        public double Area()
+        public override double Area()
         {
             return Width * Height;
         }
