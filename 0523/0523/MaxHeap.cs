@@ -25,9 +25,9 @@ internal class MaxHeap
         int l = Left(i);
         int r = Right(i);
         int largest = i;
-        if (l < Size && _data[l] > _data[i])
+        if (l <= Size && _data[l] > _data[i])
             largest = l;
-        if(r < Size && _data[r] > _data[largest])
+        if(r <= Size && _data[r] > _data[largest])
             largest = r;
 
         if(largest != i)
