@@ -1,40 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="_0404.Rectangle" Collapsed="true">
-    <Position X="2.25" Y="2" Width="1.5" />
+  <Class Name="Point">
+    <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAgAEAAAAAEAAAAAAAAAAAAAAAQAAAAA=</HashCode>
-      <FileName>Rectangle.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAABgAAAAYAA=</HashCode>
+      <FileName>Point.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Circle" Collapsed="true">
-    <Position X="4.25" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAIAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
-      <FileName>Circle.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="_0404.Shape" Collapsed="true">
-    <Position X="3.25" Y="1" Width="1.5" />
+  <Class Name="_0404.Shape">
+    <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAggAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Shape.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Point" Collapsed="true">
-    <Position X="6.25" Y="2" Width="1.5" />
+  <Class Name="_0404.Rectangle">
+    <Position X="2.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAABgAAAAYAA=</HashCode>
-      <FileName>Point.cs</FileName>
+      <HashCode>AAAAAAAABAAAAgAEAAAAAEAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Rectangle.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="IShape" Collapsed="true">
-    <Position X="1" Y="1.25" Width="1.5" />
+  <Class Name="Circle">
+    <Position X="6" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
-      <FileName>IShape.cs</FileName>
+      <HashCode>AAAIAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Circle.cs</FileName>
     </TypeIdentifier>
-  </Interface>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

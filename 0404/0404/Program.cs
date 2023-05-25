@@ -9,6 +9,12 @@ Console.WriteLine(r);
 
 Shape s = new Circle(new Point(1, 3), 5);
 s.Draw();
+Circle c2 = (Circle)s; 
+//Rectangle r2 = (Rectangle)s;
+if(s is Circle)
+{
+    c2 = (Circle)s;
+}
 
 s = new Rectangle(new Point(3, 0), 3, 6);
 s.Draw();

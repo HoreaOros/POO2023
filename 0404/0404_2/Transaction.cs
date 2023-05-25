@@ -102,6 +102,7 @@ class Transaction : IComparable<Transaction>
     }
     public class SumaOrder : IComparer<Transaction>
     {
+        
         public int Compare(Transaction? x, Transaction? y)
         {
             return x!.suma.CompareTo(y!.suma);
