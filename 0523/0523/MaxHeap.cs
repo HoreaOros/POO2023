@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 
 internal class MaxHeap
@@ -40,6 +41,51 @@ internal class MaxHeap
     {
         for (int i  = Size / 2; i >= 1; i--)
             MaxHeapify(i);
+    }
+
+    private void IncreaseKey(int i,int key)
+    {
+        if (key < _data[i])
+            throw new InvalidOperationException("New key is smaller than current key.");
+
+        _data[i] = key;
+        while(i>1 && _data[Parent(i)] < _data[i])
+        {
+            (_data[Parent(i)], _data[i]) = (_data[i], _data[Parent(i)]);
+            i = Parent(i);
+        }
+    }
+    protected void Add(int key)
+    {
+        _size++;
+
+        int[] newData = new int[Size + 1];
+        for (int i = 0; i < Size; i++)
+            newData[i] = _data[i];
+        newData[Size] = int.MinValue;
+
+        _data = newData;
+
+        IncreaseKey(Size, key);
+    }
+
+    protected int RemoveMax()
+    {
+        if (Size < 1)
+            throw new InvalidOperationException("Heap is empty.");
+        int max = _data[1];
+        _data[1] = _data[Size];
+        _size--;
+        MaxHeapify(1);
+        return max;
+    }
+
+    protected int Max()
+    {
+        if (Size < 1)
+            throw new InvalidOperationException("Heap is empty.");
+
+        return _data[1];
     }
     public override string ToString()
     {
