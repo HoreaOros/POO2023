@@ -7,9 +7,14 @@ internal class MyPriorityQueue : MaxHeap
     public MyPriorityQueue() : base(new int[0])
     { }
 
+    public void Enqueue(int priority,int value)
+    {
+        base.Add(priority,value);
+    }
+
     public void Enqueue(int priority)
     {
-        base.Add(priority);
+        base.Add(priority, priority);
     }
 
     public int Dequeue()
@@ -30,7 +35,7 @@ internal class MyPriorityQueue : MaxHeap
 
     public void Clear()
     {
-        base.Clear();
+         base.Clear();
     }
 
     public int Count => base.Size;

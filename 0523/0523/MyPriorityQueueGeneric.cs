@@ -1,18 +1,18 @@
 ﻿
-internal class MyPriorityQueue<T> : MaxHeap<T>  where T: IComparable
+internal class MyPriorityQueue<TKey, TValue> : MaxHeap<TKey, TValue>  where TKey: IComparable
 {
-    public MyPriorityQueue(T[] data) : base(data)
+    public MyPriorityQueue(TKey[] keys, TValue[] values) : base(keys, values)
     { }
 
-    public MyPriorityQueue() : base(new T[0])
+    public MyPriorityQueue() : base(new TKey[0], new TValue[0])
     { }
 
-    public void Enqueue(T priority)
+    public void Enqueue(TKey priority, TValue value)
     {
-        base.Add(priority);
+        base.Add(priority,value);
     }
 
-    public T Dequeue()
+    public TValue Dequeue()
     {
         if (Count == 0)
             throw new InvalidOperationException("Queue is empty.");
@@ -20,7 +20,7 @@ internal class MyPriorityQueue<T> : MaxHeap<T>  where T: IComparable
         return base.RemoveMax();
     }
 
-    public T Peek()
+    public TValue Peek()
     {
         if (Count == 0)
             throw new InvalidOperationException("Queue is empty.");
