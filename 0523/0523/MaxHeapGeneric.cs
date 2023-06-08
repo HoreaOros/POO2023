@@ -1,32 +1,28 @@
 ﻿using System.Text;
-
-internal class MaxHeap
+internal class MaxHeap<TKey, TValue> where TKey:IComparable
 {
-    int[] _keys;
-    int[] _values;
-    int _size;
+    TKey[] _keys;
+    TValue[]? _values;
 
-    //if values are not mentioned, keys are considered as values and sorted this way
-    public MaxHeap(int[] keys)
+    int _size;
+    public MaxHeap(TKey[] keys)
     {
-        _keys = new int[keys.Length + 1];
-        _values = new int[keys.Length + 1];
+        _keys =  new TKey[keys.Length + 1];
         for (int i = 0; i < keys.Length; i++)
         {
             _keys[i + 1] = keys[i];
-            _values[i + 1] = keys[i];
         }
         _size = keys.Length;
         BuildMaxHeap();
     }
 
-    public MaxHeap(int[] keys, int[] values)
+    public MaxHeap(TKey[] keys, TValue[] values)
     {
-        if (keys.Length != values.Length)
-            throw new InvalidOperationException("Keys count doesn't match values count");
+        if(keys.Length != values.Length)
+            throw new InvalidOperationException();
 
-        _keys = new int[keys.Length + 1];
-        _values = new int[keys.Length + 1];
+        _keys = new TKey[keys.Length + 1];
+        _values = new TValue[keys.Length + 1];
         for (int i = 0; i < keys.Length; i++)
         {
             _keys[i + 1] = keys[i];
@@ -45,89 +41,100 @@ internal class MaxHeap
         int l = Left(i);
         int r = Right(i);
         int largest = i;
-        if (l <= Size && _keys[l] > _keys[i])
+        if (l <= Size && _keys[l].CompareTo(_keys[i]) < 0)
             largest = l;
-        if (r <= Size && _keys[r] > _keys[largest])
+        if(r <= Size && _keys[r].CompareTo(_keys[largest]) < 0)
             largest = r;
 
-        if (largest != i)
+        if(largest != i)
         {
             (_keys[i], _keys[largest]) = (_keys[largest], _keys[i]);
-            (_values[i], _values[largest]) = (_values[largest], _values[i]);
+            if(_values != null)
+                (_values[i], _values[largest]) = (_values[largest], _values[i]);
             MaxHeapify(largest);
         }
     }
     private void BuildMaxHeap()
     {
-        for (int i = Size / 2; i >= 1; i--)
+        for (int i  = Size / 2; i >= 1; i--)
             MaxHeapify(i);
     }
 
-    private void IncreaseKey(int i, int key, int value)
+    private void IncreaseKey(int i,TKey key, TValue value)
     {
-        if (key.CompareTo(_keys[i]) < 0)
+        if (key.CompareTo(_keys[i])<0)
             throw new InvalidOperationException("New key is smaller than current key.");
 
         _keys[i] = key;
-        _values[i] = value;
-        while (i > 1 && _keys[Parent(i)].CompareTo(_keys[i]) < 0)
+        if (_values != null)
+            _values[i] = value;
+
+        while(i>1 && _keys[Parent(i)].CompareTo(_keys[i])<0)
         {
             (_keys[Parent(i)], _keys[i]) = (_keys[i], _keys[Parent(i)]);
-            (_values[Parent(i)], _values[i]) = (_values[i], _values[Parent(i)]);
+
+            if(_values!=null)
+                (_values[Parent(i)], _values[i]) = (_values[i], _values[Parent(i)]);
+
             i = Parent(i);
         }
     }
-
-    protected void Add(int key, int value)
+    protected void Add(TKey key, TValue value)
     {
         _size++;
 
-        int[] newKeys = new int[Size + 1];
-        int[] newValues = new int[Size + 1];
-
+        TKey[] newKeys = new TKey[Size + 1];
         for (int i = 0; i < Size; i++)
         {
             newKeys[i] = _keys[i];
-            newValues[i] = _values[i];
+        }
+        newKeys[Size] = key;
 
+        if(_values!=null)
+        {
+            TValue[] newValues = new TValue[Size + 1];
+            for (int i = 0; i < Size; i++)
+                newValues[i] = _values[i];
+
+            newValues[Size] = value;
+            _values= newValues;
         }
 
-        newKeys[Size] = key;
-        newValues[Size] = value;
-
         _keys = newKeys;
-        _values = newValues;
 
         IncreaseKey(Size, key, value);
     }
 
-    protected int RemoveMax()
+    protected TValue RemoveMax()
     {
-        if (Size < 1)
+        if (Size < 1 || _values == null)
             throw new InvalidOperationException("Heap is empty.");
 
-        int max = _values[1];
+        var max = _values[1];
 
-        _values[1] = _values[Size];
         _keys[1] = _keys[Size];
-        
+        _values[1] = _values[Size];
+
         _size--;
         MaxHeapify(1);
         return max;
     }
 
-    protected int Max()
+    protected TValue Max()
     {
-        if (Size < 1)
+        if (Size < 1 || _values == null)
             throw new InvalidOperationException("Heap is empty.");
+
         return _values[1];
     }
 
     public void Clear()
     {
         _size = 0;
-        _keys = new int[0];
-        _values = new int[0];
+        _keys = new TKey[0];
+
+        if(_values != null )
+            _values = new TValue[0];
     }
 
     public override string ToString()
@@ -135,7 +142,10 @@ internal class MaxHeap
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i <= Size; i++)
         {
-            sb.Append(_values[i]);
+            if (_values != null)
+                sb.Append(_values[i]);
+            else
+                sb.Append(_keys[i]);
             sb.Append(" ");
         }
         return sb.ToString();
